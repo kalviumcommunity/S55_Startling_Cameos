@@ -1,0 +1,11 @@
+{
+  "name": "startling-cameos",
+  "version": "1.0.0",
+  "description": "Each cameo entry includes comprehensive descriptions, offering insights into the context, significance, and impact of the celebrity appearance in the respective film.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
