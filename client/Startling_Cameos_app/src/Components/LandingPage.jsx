@@ -12,7 +12,7 @@ function LandingPage() {
             </nav>
             <div className='mega-container'>
             <div className='container'>
-                <div className='player'>
+                <div className='actors'>
                     <img src={mike} alt='mike' id='mike' />
                 </div>
                 <div className='contents'>
