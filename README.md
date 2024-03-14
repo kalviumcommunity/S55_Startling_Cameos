@@ -16,3 +16,13 @@ Users can easily search for specific celebrities or movies to discover their une
 
 ### Responsive Design: 
 The platform is designed to be responsive, ensuring a seamless browsing experience across various devices, including desktops, tablets, and smartphones.
+
+***
+
+# Back-end Deployed Link
+ https://s55-startling-cameos.onrender.com
+
+ ***
+
+# Front-end Deployed Link
+ https://iridescent-cranachan-e770c5.netlify.app/
