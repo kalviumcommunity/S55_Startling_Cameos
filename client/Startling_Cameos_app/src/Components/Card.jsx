@@ -7,7 +7,7 @@ function Card(){
             <div className='mega-container'>
                 <div className='container'>
                     <div className='actors'>
-                        <img src={mike} alt='mike' id='mike' />
+                        <img src={mike} alt='mike-tyson' id='mike-img' />
                     </div>
                     <div className='contents'>
                         <h2>Mike Tyson</h2>
