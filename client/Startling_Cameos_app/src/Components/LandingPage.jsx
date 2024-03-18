@@ -12,6 +12,7 @@ function LandingPage() {
             </nav>
             
             <Card/>
+            
 
         </div>
     )
