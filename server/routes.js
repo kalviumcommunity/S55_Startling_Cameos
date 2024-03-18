@@ -1,14 +1,10 @@
 
 const express = require('express');
-const router = express.Router();
 const { getConnectionStatus } = require('./db'); 
+const {DataModel} = require('./schema')
+const router = express.Router();
 router.use(express.json());
 
-
-router.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Oops! Something went wrong.');
-});
 
 router.get('/', async (req, res, next) => {
     try {
@@ -42,4 +38,17 @@ router.delete('/delete', async (req, res) => {
     res.send('Data deleted successfully');
 });
 
+router.get('/cameo', async (req, res) => {
+    try {
+        console.log("hello")
+        const data = await DataModel.find({});
+        console.log(data)
+        res.send(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 module.exports = router;
+

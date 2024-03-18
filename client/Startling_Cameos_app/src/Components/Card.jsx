@@ -1,24 +1,49 @@
-import mike from '../images/Mike-tyson.png'
+import React, { useState, useEffect } from 'react';
+import mike from '../images/Mike-tyson.png';
+import axios from 'axios';
+import '../App.css';
 
-function Card(){
+function Card() {
+    const [cameos, setCameos] = useState([]);
 
-    return(
-        <>
-            <div className='mega-container'>
-                <div className='container'>
-                    <div className='actors'>
-                        <img src={mike} alt='mike' id='mike' />
-                    </div>
-                    <div className='contents'>
-                        <h2>Mike Tyson</h2>
-                        <h3>Movie: The Hangover</h3>
-                        <h4>Character: Mike Tyson</h4>
-                        <h4>Duration: 1min 30secs</h4>
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                axios.get('http://localhost:5175/cameo')
+                    .then(response => {
+                        setCameos(response.data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+  
+    return (
+        <div className='main-div'>
+            {cameos.map((el, index) => (
+                <div className='mega-container' key={index}>
+                    <div className='container'>
+                        <div className='actors'>
+                            <img src={el.img} alt='mike' id='mike' />
+                        </div>
+                        <div className='contents' key={el.ranking}>
+                            <h2>{el.actor_name}</h2>
+                            <h3>Movie: {el.movie_name}</h3>
+                            <h4>Character: {el.character_name}</h4>
+                            <h4>Duration: {el.duration}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </>
-    )
+            ))}
+        </div>
+    );
 }
 
 export default Card;

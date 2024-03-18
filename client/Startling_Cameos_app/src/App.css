@@ -5,6 +5,7 @@
 
 body{
   overflow-x: hidden ;
+  background-image: url('https://marketplace.canva.com/EAFCO6pfthY/1/0/1600w/canva-blue-green-watercolor-linktree-background-F2CyNS5sQdM.jpg');
 }
 
 nav{
@@ -13,6 +14,7 @@ nav{
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  box-shadow: 3px 3px 7px gray;
 }
 
 #search{
@@ -27,35 +29,38 @@ nav{
 }
 
 .container{
-  width: 40vw;
+  width: 100%;
   border: 2px solid black;
   height: 28vw;
-  margin-left: 3vw;
-  margin-top: 4vw;
+  margin-top: 2vw;
+  margin-right: 4vw;
   background-color: #648581; 
   box-shadow: 4px 4px 8px black;
   display: flex;
   flex-direction: row;
   align-items: center;
   column-gap: 2vw;
+  flex-wrap: wrap;
 }
 
 #mike{
     height: 24vw;
     width: 19vw;
     margin-left: 1vw;
+    object-fit:inherit;
+    border-radius: 8px;
 }
 
 .contents{
   display: flex;
   flex-direction: column;
   row-gap: 2vw;
+  flex: 0 0 50%;
 }
 
 h2{
-  font-size: 3.2vw;
+  font-size: 2.7vw;
   margin-top: -7.3vw;
-  position:absolute;
 }
 
 h3{
@@ -68,8 +73,16 @@ h3{
 }
 
 .mega-container{
-  width: 100vw;
-  height: 100vh;
+  width: 50vw;
+  height: 80vh;
   display: flex;
-  justify-content: center;
+  margin-left: 1vw;
+  padding: 0%;
+  flex-wrap: wrap;
 }
+
+.main-div{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
