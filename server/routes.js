@@ -50,5 +50,14 @@ router.get('/cameo', async (req, res) => {
     }
 });
 
+router.post('/add', async(req,res)=>{
+    try{
+        const data = await DataModel.create(req.body)
+        res.status(200).json(data)
+    }catch(err){
+        console.error(err)
+    }
+})
+
 module.exports = router;
 

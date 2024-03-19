@@ -10,7 +10,7 @@ function Card() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                axios.get('http://localhost:5175/cameo')
+                axios.get('https://s55-startling-cameos.onrender.com/cameo')
                     .then(response => {
                         setCameos(response.data);
                     })

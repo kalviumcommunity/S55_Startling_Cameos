@@ -12,7 +12,7 @@ nav{
   height:6vw ;
   background-color: aliceblue;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   box-shadow: 3px 3px 7px gray;
 }
@@ -86,3 +86,18 @@ h3{
   grid-template-columns: repeat(2,1fr);
 }
 
+.add{
+  height: 2vw;
+  margin-top: 2vw;
+  margin-right: 12vw;
+  padding: 0.2vw;
+}
+
+#add-btn{
+  border: 2px solid black;
+  height: 2vw;
+  width: 6vw;
+  margin-top: 2vw;
+  margin-right: 14vw;
+  cursor: pointer;
+}
