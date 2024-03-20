@@ -16,7 +16,7 @@ function UpdateEntity(){
 
         const fetchData = async()=>{
             try{
-                const response = await axios.get('https://s55-startling-cameos.onrender.com/add');
+                const response = await axios.get('https://s55-startling-cameos.onrender.com/getEntity/' + id);
                 const {actor_name, movie_name, character_name, duration, img } = response.data;
                 setActorName(actor_name);
                 setMovieName(movie_name);
@@ -45,7 +45,11 @@ function UpdateEntity(){
             console.log(result);
             navigate('/')
           })
-          .catch((err) => console.log(err))
+          .catch((err) => {
+            console.log(err);
+            alert('put request failed',err); // added M14 - codium suggestion
+        })
+
           
     }
     return(

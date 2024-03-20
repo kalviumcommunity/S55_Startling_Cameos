@@ -101,3 +101,18 @@ h3{
   margin-right: 14vw;
   cursor: pointer;
 }
+
+button{
+  cursor: pointer;
+  background-color: #57be7e;
+  height: 2vw;
+  width: 6vw;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  margin-left: 25vw;
+  column-gap: 4vw;
+  margin-top: -7vw;
+}
