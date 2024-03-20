@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import mike from '../images/Mike-tyson.png';
 import axios from 'axios';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 function Card() {
     const [cameos, setCameos] = useState([]);
 
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +26,13 @@ function Card() {
         fetchData();
     }, []);
 
-  
+  const handleDelete = (id) =>{
+    axios.delete(`https://s55-startling-cameos.onrender.com/deleteEntity/${id}`)
+    .then(()=>{
+        window.location.reload()
+    })
+    .catch(err=> console.log(err))
+  }
     return (
         <div className='main-div'>
             {cameos.map((el, index) => (
@@ -38,6 +46,10 @@ function Card() {
                             <h3>Movie: {el.movie_name}</h3>
                             <h4>Character: {el.character_name}</h4>
                             <h4>Duration: {el.duration}</h4>
+                        </div>
+                        <div>
+                            <button onClick={()=>{navigate(`/updateEntity/${el._id}`)}}>Update</button>
+                            <button onClick={()=>{handleDelete(el._id)}}>Delete</button>
                         </div>
                     </div>
                 </div>
