@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Form() {
   const navigate = useNavigate();
 
-  const [info, setInfo] = useState({
+  const [detail, setDetail] = useState({
     actor_name: "",
     movie_name: "",
     character_name: "",
@@ -16,21 +16,17 @@ function Form() {
 
   const [isFilled, setIsFilled] = useState(false);
 
-  useEffect(() => {
-    
-  }, []);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setInfo((prevInfo) => ({
-      ...prevInfo,
+    setDetail((prevDetail) => ({
+      ...prevDetail,
       [name]: value,
     }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const {actor_name, movie_name, character_name, duration, img } = info;
+    const {actor_name, movie_name, character_name, duration, img } = detail;
     
    
     if (!actor_name || !movie_name || !character_name || !duration || !img) {
@@ -53,18 +49,17 @@ function Form() {
       }
     } else {
       
-      axios
-        .post("https://s55-startling-cameos.onrender.com/add", {
-          "actor_name" : info.actor_name,
-          "movie_name":info.movie_name,
-          "character_name":info.character_name,
-          "duration":info.duration,
-          "img":info.img,
+      axios.post("https://s55-startling-cameos.onrender.com/add", {
+          "actor_name" : detail.actor_name,
+          "movie_name":detail.movie_name,
+          "character_name":detail.character_name,
+          "duration":detail.duration,
+          "img":detail.img,
         })
         .then((response) => {
           console.log(response.data);
           navigate("/");
-          console.log(info)
+          console.log(detail)
         })
         .catch((err) => {
           console.error(err);
@@ -75,7 +70,7 @@ function Form() {
   return (
     <>
       <div id="form-cont">
-        {console.log(info)}
+        {console.log(detail)}
         <form onSubmit={handleSubmit} id="form">
           <div>
             <label>Actor Name </label>

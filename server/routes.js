@@ -59,5 +59,47 @@ router.post('/add', async(req,res)=>{
     }
 })
 
+router.get('/getEntity/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const entity = await DataModel.findById({_id:id});
+        if (!entity) {
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+        console.log(entity);
+        res.json(entity);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+router.put('/updateEntity/:id', async(req,res)=>{
+    try{
+        const id = req.params.id
+        const data = await DataModel.findByIdAndUpdate({_id:id},{
+            actor_name: req.body.actor_name,
+            movie_name: req.body.movie_name,
+            character_name: req.body.character_name,
+            duration: req.body.duration,
+            img: req.body.img,
+        })
+        res.status(200).json(data)
+    }catch(err){
+        console.error(err)
+    }
+})
+
+router.delete('/deleteEntity/:id', (req, res) => {
+    const id = req.params.id;
+    DataModel.findByIdAndDelete(id)
+        .then(deletedEntity => {
+            res.json(deletedEntity);
+        })
+        .catch(err => {
+            res.status(500).json({ error: err.message });
+        });
+});
+
 module.exports = router;
 
