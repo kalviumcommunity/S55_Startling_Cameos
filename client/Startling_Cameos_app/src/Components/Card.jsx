@@ -47,9 +47,9 @@ function Card() {
                             <h4>Character: {el.character_name}</h4>
                             <h4>Duration: {el.duration}</h4>
                         </div>
-                        <div>
-                            <button onClick={()=>{navigate(`/updateEntity/${el._id}`)}}>Update</button>
-                            <button onClick={()=>{handleDelete(el._id)}}>Delete</button>
+                        <div className='buttons'>
+                            <button id='update' onClick={()=>{navigate(`/updateEntity/${el._id}`)}}>Update</button>
+                            <button id='delete' onClick={()=>{handleDelete(el._id)}}>Delete</button>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,15 @@ const { getConnectionStatus } = require('./db');
 const {DataModel} = require('./schema')
 const router = express.Router();
 router.use(express.json());
+const Joi = require("joi")
 
+const validateSchema = Joi.object({
+    "actor_name": Joi.string().required(),
+    "movie_name": Joi.string().required(),
+    "character_name": Joi.string().required(),
+    "duration": Joi.string().required(),
+    "img": Joi.string().required(),
+});
 
 router.get('/', async (req, res, next) => {
     try {
@@ -52,9 +60,17 @@ router.get('/cameo', async (req, res) => {
 
 router.post('/add', async(req,res)=>{
     try{
-        const data = await DataModel.create(req.body)
+        const{value,error} = validateSchema.validate(req.body)
+
+        if(error){
+            res.send(error.details)
+        }
+        const data = await DataModel.create(value)
         res.status(200).json(data)
-    }catch(err){
+    
+    }
+
+        catch(err){
         console.error(err)
     }
 })
@@ -75,7 +91,12 @@ router.get('/getEntity/:id', async (req, res) => {
 });
 
 router.put('/updateEntity/:id', async(req,res)=>{
+
     try{
+        const{value,error} = validateSchema.validate(req.body)
+        if(error){
+            res.send(error.details)
+        }
         const id = req.params.id
         const data = await DataModel.findByIdAndUpdate({_id:id},{
             actor_name: req.body.actor_name,
