@@ -98,7 +98,8 @@ h3{
   height: 2vw;
   width: 6vw;
   margin-top: 2vw;
-  margin-right: 14vw;
+  margin-right: 2vw;
+  margin-left: 4vw;
   cursor: pointer;
 }
 
@@ -115,4 +116,45 @@ button{
   margin-left: 25vw;
   column-gap: 4vw;
   margin-top: -7vw;
+}
+
+.login-container{
+  border: 2px solid black;
+  text-align: center;
+  height: 20vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vw;
+  font-size: 1.3vw;
+  background-color: grey;
+  box-shadow: 4px 5px 8px black;
+  margin-left: 34vw;
+  margin-top: 10vw;
+}
+
+.signup-container{
+  border: 2px solid black;
+  text-align: center;
+  height: 20vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vw;
+  font-size: 1.3vw;
+  background-color: grey;
+  box-shadow: 4px 5px 8px black;
+  margin-left: 34vw;
+  margin-top: 10vw;
+
+}
+
+
+.log-btn{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vw;
+  margin-top: 2vw;
+  margin-right: 2vw;
+  margin-left: 4vw;
 }
