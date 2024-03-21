@@ -61,9 +61,15 @@ router.get('/cameo', async (req, res) => {
 router.post('/add', async(req,res)=>{
     try{
         const{value,error} = validateSchema.validate(req.body)
+
         if(error){
             res.send(error.details)
-        }}
+        }
+        const data = await DataModel.create(value)
+        res.status(200).json(data)
+    
+    }
+
         catch(err){
         console.error(err)
     }
