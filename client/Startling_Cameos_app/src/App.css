@@ -127,10 +127,10 @@ button{
   flex-direction: column;
   row-gap: 1vw;
   font-size: 1.3vw;
-  background-color: grey;
+  background-color: rgb(104, 202, 148);
   box-shadow: 4px 5px 8px black;
-  margin-left: 34vw;
-  margin-top: 10vw;
+  margin-left: 35vw;
+  margin-top: 4vw;
 }
 
 .signup-container{
@@ -142,13 +142,34 @@ button{
   flex-direction: column;
   row-gap: 1vw;
   font-size: 1.3vw;
-  background-color: grey;
+  background-color: rgb(104, 202, 148);
   box-shadow: 4px 5px 8px black;
-  margin-left: 34vw;
-  margin-top: 10vw;
-
+  margin-left: 35vw;
+  margin-top: 4vw;
 }
 
+#btn{
+  margin-left: 12vw;
+  margin-top: 1vw;
+  background-color: #f59375;
+}
+
+.userForm{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
+  margin-top: 2.4vw;
+}
+
+#sign-up-txt{
+  text-align: center;
+  margin-top: 10vw;
+}
+
+#login-txt{
+  text-align: center;
+  margin-top: 10vw;
+}
 
 .log-btn{
   display: flex;
@@ -157,4 +178,8 @@ button{
   margin-top: 2vw;
   margin-right: 2vw;
   margin-left: 4vw;
+}
+
+#username{
+  margin-top: 5vw;
 }
