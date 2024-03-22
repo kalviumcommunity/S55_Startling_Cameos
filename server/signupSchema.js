@@ -5,5 +5,5 @@ const signupSchema = mongoose.Schema({
     password:String
 });
 const UserModel = mongoose.model("user", signupSchema);
-console.log(UserModel)
+// console.log(UserModel)
 module.exports = {UserModel};

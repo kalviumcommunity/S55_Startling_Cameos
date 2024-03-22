@@ -6,6 +6,8 @@ const {UserModel} = require('./signupSchema')
 const router = express.Router();
 router.use(express.json());
 const Joi = require("joi")
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 const validateSchema = Joi.object({
     "actor_name": Joi.string().required(),
@@ -170,6 +172,22 @@ router.post('/signup',async(req,res)=>{
     }
   
 })
+
+router.post('/auth',async(req,res)=>{
+    try{
+        const user = {
+            username:req.body.username,
+            password : req.body.password
+        }
+        const token = jwt.sign(user,process.env.ACCESS_TOKEN)
+        res.cookie('token',token,{maxAge:365*24*60*60*1000})
+        res.status(200).json(token)
+
+    }catch(err){
+        console.log(err)
+    }
+})
+
 
 module.exports = router;
 

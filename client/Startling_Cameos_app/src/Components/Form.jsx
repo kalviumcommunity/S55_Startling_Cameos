@@ -13,8 +13,7 @@ function Form() {
     duration: "",
     img: "",
   });
-
-  const [isFilled, setIsFilled] = useState(false);
+  // const [isFilled, setIsFilled] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

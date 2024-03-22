@@ -24,7 +24,7 @@ function Signup() {
         await axios.post(`https://s55-startling-cameos.onrender.com/signup`, { username, password }); 
         console.log(username);
         console.log(password);
-        navigate("/home");
+        navigate("/");
       }
     } catch (err) {
       console.error(err);
@@ -33,10 +33,11 @@ function Signup() {
 
   return (
     <>
+        <h1 id="sign-up-txt">Signup</h1>
       <div className="signup-container">
         <form action="" className="userForm" onSubmit={handleSignup}> 
           <div>
-            <label htmlFor="">Username: </label>
+            <label id="username" htmlFor="">Username: </label>
             <input
               type="text"
               placeholder="Enter your username"
@@ -45,7 +46,7 @@ function Signup() {
           </div>
 
           <div>
-            <label>Password: </label>
+            <label id="password">Password: </label>
             <input
               type="password" 
               placeholder="Enter your password"

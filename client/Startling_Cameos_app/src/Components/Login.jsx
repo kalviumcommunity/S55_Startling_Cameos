@@ -31,12 +31,22 @@ function Login() {
         
         const response = await axios.post(`https://s55-startling-cameos.onrender.com/login`, { username, password }); 
         if(response.status===200){
+          try{
+            const res = axios.post('https://s55-startling-cameos.onrender.com/auth',{ username, password })
+            .then(res => {
+              console.log(res.data)
+              document.cookie = 'ACESS_TOKEN='+res.data
+            })
+          }
+          catch(err){
+            console.log(err)
+          }
             setCookie('username',username,365)
             setCookie('password',password,365)
             sessionStorage.setItem('login',true)
             sessionStorage.setItem('username',username)
             alert('login succesful')
-            navigate("/home");
+            navigate("/");
         }
        else if(response.status ===  401){
             alert('invalid user credentials')
@@ -50,6 +60,7 @@ function Login() {
 
   return (
     <>
+        <h1 id="login-txt">Login</h1>
       <div className="login-container">
         <form action="" className="userForm" onSubmit={handleLogin}>
           <div>
