@@ -2,6 +2,7 @@
 const express = require('express');
 const { getConnectionStatus } = require('./db'); 
 const {DataModel} = require('./schema')
+const {UserModel} = require('./signupSchema')
 const router = express.Router();
 router.use(express.json());
 const Joi = require("joi")
@@ -122,22 +123,10 @@ router.delete('/deleteEntity/:id', (req, res) => {
         });
 });
 
-router.post('/signup',async(req,res)=>{
-    try{
-        const user = await DataModel.create({
-            username:req.body.username,
-            password:req.body.password
-        })
-        res.send(user)
-    }catch(err){
-        console.error(err)
-    }
-  
-})
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        const user = await DataModel.findOne({ username, password });
+        const user = await UserModel.findOne({ username, password });
         
         if (!user) {
             return res.status(401).json({ error: 'Invalid username or password' });
@@ -158,7 +147,29 @@ router.post('/logout',(req,res)=>{
 })
 
 
+router.get('/users', async (req, res) => {
+    try {
+        const data = await UserModel.find({});
+        console.log(data)
+        res.send(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
+router.post('/signup',async(req,res)=>{
+    try{
+        const user = await UserModel.create({
+            username:req.body.username,
+            password:req.body.password
+        })
+        res.send(user)
+    }catch(err){
+        console.error(err)
+    }
+  
+})
 
 module.exports = router;
 
