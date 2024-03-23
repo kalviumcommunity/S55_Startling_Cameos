@@ -6,7 +6,8 @@ const dataSchema = new mongoose.Schema({
     movie_name: { type: String, required: true },
     character_name: { type: String, required: true },
     duration: { type: String, required: true },
-    img: {type: String, required: true}
+    img: {type: String, required: true},
+    created_by: {type: String, required: true}
 });
 
 const DataModel = mongoose.model("Startling_cameo", dataSchema);

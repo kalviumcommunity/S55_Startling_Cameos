@@ -9,12 +9,15 @@ const Joi = require("joi")
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
+const tok = process.env.ACCESS_TOKEN
+
 const validateSchema = Joi.object({
     "actor_name": Joi.string().required(),
     "movie_name": Joi.string().required(),
     "character_name": Joi.string().required(),
     "duration": Joi.string().required(),
     "img": Joi.string().required(),
+    "created_by": Joi.string().required()
 });
 
 router.get('/', async (req, res, next) => {
@@ -179,7 +182,7 @@ router.post('/auth',async(req,res)=>{
             username:req.body.username,
             password : req.body.password
         }
-        const token = jwt.sign(user,process.env.ACCESS_TOKEN)
+        const token = jwt.sign(user,tok)
         res.cookie('token',token,{maxAge:365*24*60*60*1000})
         res.status(200).json(token)
 
