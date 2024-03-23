@@ -35,7 +35,7 @@ function Login() {
             const res = axios.post('https://s55-startling-cameos.onrender.com/auth',{ username, password })
             .then(res => {
               console.log(res.data)
-              document.cookie = 'ACESS_TOKEN='+res.data
+              document.cookie = 'ACCESS_TOKEN='+res.data
             })
           }
           catch(err){
