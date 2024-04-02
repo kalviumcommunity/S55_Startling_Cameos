@@ -3,20 +3,19 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-function Card({ filteredCameos }) { 
+function Card({ filteredCameos,setCameos }) { 
 
     const navigate = useNavigate();
 
     const handleDelete = (id) => {
         axios.delete(`https://s55-startling-cameos.onrender.com/deleteEntity/${id}`)
             .then(() => {
-                
                 const updatedCameos = filteredCameos.filter(cameo => cameo._id !== id);
-                
                 setCameos(updatedCameos);
             })
             .catch(err => console.log(err));
     };
+    
 
 
     return (

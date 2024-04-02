@@ -66,7 +66,7 @@ function LandingPage() {
             </nav>
 
             {/* Pass filteredCameos as props to the Card component */}
-            <Card filteredCameos={filteredCameos} />
+            <Card filteredCameos={filteredCameos} setCameos = {setCameos}/>
 
         </div>
     );
