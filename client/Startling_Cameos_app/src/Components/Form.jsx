@@ -12,6 +12,7 @@ function Form() {
     character_name: "",
     duration: "",
     img: "",
+    created_by: sessionStorage.getItem('username')
   });
   // const [isFilled, setIsFilled] = useState(false);
 
@@ -54,6 +55,7 @@ function Form() {
           "character_name":detail.character_name,
           "duration":detail.duration,
           "img":detail.img,
+          "created_by": sessionStorage.getItem('username')
         })
         .then((response) => {
           console.log(response.data);
