@@ -17,9 +17,18 @@ const startDatabase = async () => {
     }
 };
 
+const router = require('./routes');
+const {startDatabase , getConnectionStatus} = require('./db'); 
+const port = 5175;
+const cors = require('cors')
+
+app.use(express.json());
+app.use(cors());
+
 app.get('/ping', (req, res) => {
     res.send('pong');
 });
+
 
 app.get('/', async (req, res) => {
     
@@ -34,6 +43,24 @@ app.get('/', async (req, res) => {
 app.listen(4000, () => {
     startDatabase();
     console.log('Listening on port 4000');
+})
+
+app.get('/db', async (req, res) => {
+    try {
+        let smthg = getConnectionStatus();
+        res.send(smthg);
+    } catch (err) {
+        console.error("Failed to get database connection status:", err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+ 
+
+app.listen(port, () => {
+    startDatabase();
+    console.log(`Listening on port ${port}`);
+
 });
 
 module.exports = app;

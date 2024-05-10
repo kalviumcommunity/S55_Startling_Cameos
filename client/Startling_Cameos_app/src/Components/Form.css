@@ -1,0 +1,45 @@
+#form{
+    border: 2px solid black;
+    width: 20vw;
+    text-align: center;
+    height: 37vw;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vw;
+    font-size: 1.3vw;
+    background-color: grey;
+    box-shadow: 4px 5px 8px black;
+}
+
+
+input{
+    height: 2vw;
+    width: 18vw;
+    background-color: beige;
+}
+#form-cont{
+    height: 100vh;
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit{
+    width: 5vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    background-color: red;
+}
+
+#submit{
+    cursor: pointer;
+    font-weight: 600;
+}
+#submit-1{
+    width: 6vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    background-color: red;
+    color: black;
+}
