@@ -25,4 +25,4 @@ The platform is designed to be responsive, ensuring a seamless browsing experien
  ***
 
 # Front-end Deployed Link
- https://iridescent-cranachan-e770c5.netlify.app/
+https://startling-cameos.vercel.app/
